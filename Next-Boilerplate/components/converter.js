@@ -6,6 +6,7 @@ import FileDownload from './fileDownload';
 import { getFileType } from '../public/helper';
 import { fileTypes } from '../public/constant';
 import ImageToPDF from './type-conversion/ImageToPDF';
+import style from '../public/styles/convert.module.css';
 
 function IndexPage() {
   const [file, setFile] = useState(null);
@@ -34,10 +35,11 @@ function IndexPage() {
   };
 
   return (
-    <div>
+    <div className={style.container}>
       <h1>A {fileType} File Converter</h1>
       <FileUpload onFileUpload={handleFileUpload} />
-      {fileType==fileTypes.PNG && <ImageToPDF file={file} /> }
+      {fileType==fileTypes.PNG ? <ImageToPDF file={file} /> : !fileType?
+      <p>Please Upload Image File</p>:<p>Please upload supported file</p>}
       {convertedFile && (
         <FileDownload convertedFile={convertedFile} />
       )}

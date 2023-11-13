@@ -1,0 +1,18 @@
+.container{
+    width: 60vw;
+    max-width: 800px;
+    height:20vh;
+    max-height: 250px;
+    border-radius: 10px;
+    box-shadow: 5px 5px var(--btn);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.nav{
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+    align-items: flex-end;
+}

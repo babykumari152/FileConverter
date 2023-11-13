@@ -1,0 +1,43 @@
+:root{
+    --bg:rgb(235, 246, 248);
+    --btn:rgb(210, 210, 244);
+    --btnhvr:rgba(210,210,244,0.5);
+
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: var(--bg);
+}
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width:100vw;
+    justify-content: space-between;
+}
+button{
+    border:none;
+    width: 100px;
+    background-color: var(--btn);
+    height: 40px;
+    border-radius: 4px;
+}
+button:hover{
+    background-color: var(--btn);
+    box-shadow: 
+    0 0 10px  var(--btnhvr),
+    0 0 20px  var(--btnhvr),
+    0 0 30px  var(--btnhvr),
+    0 0 40px  var(--btnhvr),
+    0 0 50px  var(--btnhvr),
+    0 0 60px  var(--btnhvr)
+  
+}
+
+.flex-row{
+    display: flex;
+}
