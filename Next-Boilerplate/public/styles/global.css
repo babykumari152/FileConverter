@@ -41,3 +41,6 @@ button:hover{
 .flex-row{
     display: flex;
 }
+a{
+    text-decoration: none;
+}

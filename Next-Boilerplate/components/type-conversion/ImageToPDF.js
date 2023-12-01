@@ -26,10 +26,10 @@ const ImageToPDF = ({file})=>{
 
     }
     
-    return(<div className='container'><Image src={file} width={150} height={150}  />
+    return(<><Image src={file} width={150} height={150}  />
         <button onClick={convert}>convert to pdf</button>
         {pdfFile &&<button onClick={download}>Download</button>}
-        </div>)
+        </>)
 
 }
 export default ImageToPDF;

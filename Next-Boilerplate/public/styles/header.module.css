@@ -2,9 +2,9 @@
     width: 60vw;
     max-width: 800px;
     height:20vh;
-    max-height: 250px;
+    max-height: 50px;
     border-radius: 10px;
-    box-shadow: 5px 5px var(--btn);
+    box-shadow: 5px 5px var(--btn),-5px 5px var(--btn);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,4 +15,11 @@
     width: 200px;
     justify-content: space-between;
     align-items: flex-end;
+}
+.nav>span{
+    cursor: pointer;
+}
+.nav>span:hover{
+    color: var(--btn);
+    font-size: medium;
 }

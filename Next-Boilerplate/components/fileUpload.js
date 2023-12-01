@@ -1,5 +1,6 @@
 // components/FileUpload.js
 import React, { useState } from 'react';
+import style from '../public/styles/convert.module.css'
 
 function FileUpload({ onFileUpload }) {
   const handleFileChange = (event) => {
@@ -12,7 +13,7 @@ function FileUpload({ onFileUpload }) {
   }
 
   return (
-    <div>
+    <div className={style.container}>
       <button onClick={upload}>Upload File</button>
      <input type="file" id="file" onChange={handleFileChange} style={{display:'none'}} />
     </div>

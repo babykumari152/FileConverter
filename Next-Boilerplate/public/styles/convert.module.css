@@ -5,3 +5,9 @@
     justify-content: space-around;
     max-height: 300px;
 }
+.uploadContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 500px;
+}
