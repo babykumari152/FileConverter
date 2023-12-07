@@ -1,12 +1,52 @@
 // components/FileUpload.js
 import React, { useState } from 'react';
-import style from '../public/styles/convert.module.css'
+import style from '../public/styles/convert.module.css';
+import { useGlobalContext } from '../public/context/GlobalContext';
+import { getFileType } from '../public/helper';
 
-function FileUpload({ onFileUpload }) {
+function FileUpload() {
+  const { setFile,setFileType,setFileSize,setFileBlob } = useGlobalContext();
   const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    onFileUpload(file);
+    const fileRaw = event.target.files[0];
+    const sizeInByte = fileRaw.size;
+    setFileSize(sizeInByte/1024);
+    onFileUpload(fileRaw);
+    
+
   };
+  const onFileUpload = (uploadedFile) => {
+    console.log(uploadedFile);
+    let reader= new FileReader();
+    reader.onload =(event)=>{
+      let fileConentBase64=event.target.result;
+      createBlob(fileConentBase64)
+      setFile(fileConentBase64);
+      let types=getFileType(uploadedFile.type);
+      setFileType(types);
+      
+    }
+    reader.readAsDataURL(uploadedFile);
+    
+    
+    //setFile(uploadedFile);
+  };
+  const createBlob = (base64String)=>{
+    const base64WithoutPrefix = base64String.split(',')[1];
+    const binaryData = atob(base64WithoutPrefix);
+    console.log(binaryData)
+    const uint8Array = new Uint8Array(binaryData.length);
+    for (let i = 0; i < binaryData.length; i++) {
+      uint8Array[i] = binaryData.charCodeAt(i);
+    }
+    console.log(uint8Array);
+    const blob = new Blob(uint8Array, { type: 'image/png' });
+    setFileBlob(blob);
+    console.log(blob);
+
+
+
+  }
+
   const upload=()=>{
     let fileInput= document.getElementById('file');
     fileInput.click();
