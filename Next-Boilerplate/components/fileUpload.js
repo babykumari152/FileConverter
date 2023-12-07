@@ -9,17 +9,17 @@ function FileUpload() {
   const handleFileChange = (event) => {
     const fileRaw = event.target.files[0];
     const sizeInByte = fileRaw.size;
+    setFileBlob(fileRaw)
     setFileSize(sizeInByte/1024);
     onFileUpload(fileRaw);
     
 
   };
   const onFileUpload = (uploadedFile) => {
-    console.log(uploadedFile);
     let reader= new FileReader();
     reader.onload =(event)=>{
       let fileConentBase64=event.target.result;
-      createBlob(fileConentBase64)
+      //createBlob(fileConentBase64)
       setFile(fileConentBase64);
       let types=getFileType(uploadedFile.type);
       setFileType(types);
@@ -33,12 +33,10 @@ function FileUpload() {
   const createBlob = (base64String)=>{
     const base64WithoutPrefix = base64String.split(',')[1];
     const binaryData = atob(base64WithoutPrefix);
-    console.log(binaryData)
     const uint8Array = new Uint8Array(binaryData.length);
     for (let i = 0; i < binaryData.length; i++) {
       uint8Array[i] = binaryData.charCodeAt(i);
     }
-    console.log(uint8Array);
     const blob = new Blob(uint8Array, { type: 'image/png' });
     setFileBlob(blob);
     console.log(blob);
