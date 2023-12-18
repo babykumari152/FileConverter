@@ -22,14 +22,16 @@ function IndexPage() {
 
   return (
     <div className={style.container}>
-      <h1>A {fileType} File Converter</h1>
-      <div className={style.uploadContainer}>
-      <FileUpload  />
-      {fileType==fileTypes.PNG ? <ImageToPDF file={file} /> : !fileType?
-      <p>Please Upload Image File</p>:<p>Please upload supported file</p>}
+      <h1 className='mar1rem'>A {fileType} File Converter</h1>
+      <div className={style.uploadContainer+' '+'mar1rem'}>
+        
+      { fileType !==fileTypes.PNG &&<FileUpload  />}
+      {fileType==fileTypes.PNG && !convertedFile? <ImageToPDF file={file} /> : !fileType?
+      <p>Please Upload Image File</p>: <p>Please upload supported file</p>}
       {convertedFile && (
         <FileDownload convertedFile={convertedFile} />
       )}
+      
       </div>
     </div>
   );

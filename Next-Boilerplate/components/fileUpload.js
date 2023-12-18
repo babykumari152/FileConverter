@@ -52,7 +52,7 @@ function FileUpload() {
 
   return (
     <div className={style.container}>
-      <button onClick={upload}>Upload File</button>
+      <button onClick={upload} className='mar1rem'>Upload File</button>
      <input type="file" id="file" onChange={handleFileChange} style={{display:'none'}} />
     </div>
   );

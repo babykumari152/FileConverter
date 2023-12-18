@@ -26,9 +26,9 @@ const ImageToPDF = ({file})=>{
 
     }
     
-    return(<><Image src={file} width={150} height={150}  />
-        <button onClick={convert}>convert to pdf</button>
-        {pdfFile &&<button onClick={download}>Download</button>}
+    return(<><Image src={file} width={150} height={150} className='floatLeft'  />
+        {!pdfFile && <button onClick={convert} className='mar1rem'>convert to pdf</button>}
+        {pdfFile &&<button onClick={download} className='mar1rem'>Download</button>}
         </>)
 
 }
