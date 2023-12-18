@@ -7,6 +7,7 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 body{
     background-color: var(--bg);
@@ -43,4 +44,13 @@ button:hover{
 }
 a{
     text-decoration: none;
+}
+.mar1rem{
+    margin: 1rem;
+}
+.floatLeft{
+    float: left;
+}
+.hidden{
+    display: none;
 }
